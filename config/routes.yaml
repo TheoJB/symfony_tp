@@ -2,14 +2,14 @@ pro_stages_accueil:
     path: /accueil
     controller: App\Controller\ProStagesController::index
 
-pro_stages_entreprises:
-    path: /entreprises
-    controller: App\Controller\ProStagesController::entreprises
+pro_stages_entreprise:
+    path: /entreprise
+    controller: App\Controller\ProStagesController::entreprise
 
-pro_stages_formations:
-    path: /formations
-    controller: App\Controller\ProStagesController::formations
+pro_stages_formation:
+    path: /formation
+    controller: App\Controller\ProStagesController::formation
 
-pro_stages_stages:
-    path: /stages/{id}
-    controller: App\Controller\ProStagesController::stages
+pro_stages_stage:
+    path: /stage/{id}
+    controller: App\Controller\ProStagesController::stage

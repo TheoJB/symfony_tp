@@ -2,10 +2,12 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
+        <title>{% block title %}{% endblock %}</title>
         {% block stylesheets %}{% endblock %}
     </head>
     <body>
+      <h1> ProStages </h1>
+      <p> Bienvenue sur le site ProStages regroupant les stages sur le Pays Basques </p>
         {% block body %}{% endblock %}
         {% block javascripts %}{% endblock %}
     </body>
