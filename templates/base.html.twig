@@ -2,13 +2,54 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>{% block title %}{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
+        <title>{% block title %}ProStages{% endblock %}</title>
+        {% block stylesheets %}<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">{% endblock %}
+
     </head>
     <body>
       <h1> ProStages </h1>
+      <div class="col-md-12 col-sm-6">
       <p> Bienvenue sur le site ProStages regroupant les stages sur le Pays Basques </p>
-        {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
+      </div>
+      {% block navbar %}
+              <div class="row"><!-- ligne 2 contenant les pages entreprises et formations -->
+                <div class="col-md-12">
+                    <nav class="navbar navbar-expand-lg navbar-light bg-dark">
+                        <a class="navbar-brand text-white" href="{{ path('pro_stages_accueil')}}">Accueil</a>
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                            <div class="navbar-nav">
+                                <a class="nav-item nav-link text-white" href="{{ path('pro_stages_entreprise')}}">Entreprises</a>
+                                <a class="nav-item nav-link text-white" href="{{ path('pro_stages_formation')}}">Formations<span class="sr-only">(current)</span></a>
+                            </div>
+                        </div>
+                    </nav>
+                </div>
+              </div>
+        {% endblock %}
+
+        {% block body %}
+        {% endblock %}
+
+
+
+        {% block footer %}
+                    <footer class="footer fixed-bottom font-small blue">
+                      <div class="row"><!-- ligne 4 contenant le pied de page -->
+                          <div class="col-12">
+
+                                <h3> Site réalisé par Theo Jean-Baptiste </h3>
+
+                          </div>
+                      </div>
+                  </footer>
+        {% endblock %}
+
+        {% block javascripts %}<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+          <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+        {% endblock %}
     </body>
 </html>
