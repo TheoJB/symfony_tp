@@ -3,5 +3,18 @@
 {% block title %}Stage {{id}}{% endblock %}
 
 {% block body %}
-<p> Description du stage {{id}} </p>
+<div class="jumbotron">
+  <h1 class="display-4">{{stage.intitule}}</h1>
+  <p class="lead">{{stage.mission}}</p>
+  <hr class="my-4">
+  <p>Entreprise : {{stage.entreprise.nom}}</p>
+  <p>Mail : {{stage.adresseMail}}</p>
+  <p>Formations :
+  {% for formationCourante in stage.formation %}
+    {% if loop.last %}
+        {{ formationCourante.nom }}.
+    {% else %}
+        {{ formationCourante.nom }},
+    {% endif %}
+{% endfor %}</p>
 {% endblock %}

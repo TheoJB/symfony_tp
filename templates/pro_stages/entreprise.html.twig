@@ -3,5 +3,42 @@
 {% block title %}Trie par entreprises{% endblock %}
 
 {% block body %}
-<p> tableau trié par entreprises </p>
+{% for entreprise in entreprises %}
+    {% for stage in entreprise.stages %}
+           <div class="row"><!-- ligne 3 contenant les stages -->
+               <div class="col-12">
+                   <div class="accordion" id="accordionExample">
+                       <div class="card">
+                           <div class="card-header" id={{ stage.id }}>
+                           <h2 class="mb-0">
+                               <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapse{{stage.id}}" aria-expanded="false" aria-controls="collapse{{stage.id}}">
+                                   {{ stage.intitule }}
+                               </button>
+                           </h2>
+                           </div>
+
+                           <div id="collapse{{stage.id}}" class="collapse" aria-labelledby="collapse{{stage.id}}" data-parent="#accordionExample">
+                           <div class="card-body">
+                               </br>
+                               <u><b>Entreprise :</u></b> {{ stage.entreprise.nom }}
+                               </br>
+                               <u><b>Formation :</u></b>
+                               {% for formationCourante in stage.formation %}
+                                   {% if loop.last %}
+                                       {{ formationCourante.nom }}.
+                                   {% else %}
+                                       {{ formationCourante.nom }},
+                                   {% endif %}
+                               {% endfor %}
+                               </br>
+                               </br>
+                               <a class="btn btn-primary" href='{{path('pro_stages_stage',{id:stage.id})}}' role="button">En savoir plus</a>
+                           </div>
+                           </div>
+                       </div>
+                   </div>
+               </div>
+           </div>
+      {% endfor %}
+    {% endfor %}
 {% endblock %}
