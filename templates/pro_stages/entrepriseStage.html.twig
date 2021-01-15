@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Entreprise {{id}}{% endblock %}
+
+{% block body %}
+<div class="jumbotron">
+  <h1 class="display-4">{{entreprise.nom}}</h1>
+  <p class="lead">{{entreprise.activite}}</p>
+  <hr class="my-4">
+
+  <p>Stages :</br></br></br>
+  {% for stageCourant in entreprise.stages %}
+    {% if loop.last %}
+        {{ stageCourant.intitule }}
+        <p>Entreprise : {{stageCourant.entreprise.nom}}</p>
+        <p>Mail : {{stageCourant.adresseMail}}</p>
+        <a class="btn btn-primary" href='{{path('pro_stages_stage',{id:stageCourant.id})}}' role="button">En savoir plus</a>
+        </br>
+        </br>
+    {% else %}
+    {{ stageCourant.intitule }}
+    <p>Entreprise : {{stageCourant.entreprise.nom}}</p>
+    <p>Mail : {{stageCourant.adresseMail}}</p>
+    <a class="btn btn-primary" href='{{path('pro_stages_stage',{id:stageCourant.id})}}' role="button">En savoir plus</a>
+    </br>
+    </br>
+    {% endif %}
+{% endfor %}</p>
+{% endblock %}

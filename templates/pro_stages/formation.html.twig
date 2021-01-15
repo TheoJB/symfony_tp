@@ -21,14 +21,14 @@
                            <div id="collapse{{stage.id}}" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
                            <div class="card-body">
                                </br>
-                               <u><b>Entreprise :</u></b> {{ stage.entreprise.nom }}
+                               <u><b>Entreprise :</u></b> <a href="{{ path('pro_stages_entrepriseStage',{ id : stage.entreprise.id }) }}">{{ stage.entreprise.nom }}</a>
                                </br>
                                <u><b>Formation :</u></b>
                                {% for formationCourante in stage.formation %}
                                    {% if loop.last %}
-                                       {{ formationCourante.nom }}.
+                                   <a href="{{ path('pro_stages_formationStage',{id:formationCourante.id }) }}">{{ formationCourante.nom }}</a>.
                                    {% else %}
-                                       {{ formationCourante.nom }},
+                                   <a href="{{ path('pro_stages_formationStage',{id:formationCourante.id }) }}">{{ formationCourante.nom }}</a>.
                                    {% endif %}
                                {% endfor %}
                                </br>

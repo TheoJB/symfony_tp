@@ -57,4 +57,26 @@ class ProStagesController extends AbstractController
   ]);
 }
 
+public function formationStages($id): Response
+{  //Recupérer le repository de l'entité stage
+    $repositoryFormation = $this->getDoctrine()->getRepository(Formation::class);
+
+    //Récupérer les stages enregistrées en BD
+    $formation = $repositoryFormation->find($id);
+  return $this->render('pro_stages/formationStage.html.twig', [
+      'id' => $id, 'formation'=>$formation
+]);
+}
+
+public function entrepriseStages($id): Response
+{  //Recupérer le repository de l'entité stage
+    $repositoryEntreprise = $this->getDoctrine()->getRepository(Entreprise::class);
+
+    //Récupérer les stages enregistrées en BD
+    $entreprise = $repositoryEntreprise->find($id);
+  return $this->render('pro_stages/entrepriseStage.html.twig', [
+      'id' => $id, 'entreprise'=>$entreprise
+]);
+}
+
 }
